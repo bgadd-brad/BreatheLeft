@@ -1,4 +1,4 @@
-package com.breatheleft.newarchitecture.components;
+package io.breatheleft.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

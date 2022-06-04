@@ -1,4 +1,4 @@
-package com.breatheleft;
+package io.breatheleft;
 
 import android.os.Build;
 import android.os.Bundle;

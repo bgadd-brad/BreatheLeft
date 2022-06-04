@@ -1,4 +1,4 @@
-package com.breatheleft.newarchitecture;
+package io.breatheleft.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.breatheleft.BuildConfig;
-import com.breatheleft.newarchitecture.components.MainComponentsRegistry;
-import com.breatheleft.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import io.breatheleft.BuildConfig;
+import io.breatheleft.newarchitecture.components.MainComponentsRegistry;
+import io.breatheleft.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
