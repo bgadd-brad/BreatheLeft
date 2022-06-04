@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "BreatheLeft",
+    "slug": "BreatheLeft",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
