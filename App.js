@@ -9,34 +9,49 @@ const formatNumber = number => `0${number}`.slice(-2)
 const getRamaining = (time) => {
   const mins = Math.floor(time / 60);
   const secs = time - mins * 60;
-  return { mins: formatNumber(mins), secs: formatNumber(secs)}
+  return { mins: formatNumber(mins), secs:formatNumber(secs)}
 }
 export default function App() {
-  const [reaminingSecs, setRemainingSecs] = useState(0);
+  const [remainingSecs, setRemainingSecs] = useState(0);
   const [isActive, setIsActive] = useState(false);
-  const {mins, secs } = getRamaining(reaminingSecs);
+  const {mins, secs } = getRamaining(remainingSecs);
 
   const toggle = () =>  {
     setIsActive(!isActive);
   }
 
+  const reset = () => {
+    setRemainingSecs(0);
+    setIsActive(false);
+  }
+
   useEffect(() => {
-let interval = null;
-if(isActive) {
+  let interval = null;
+
+  if(isActive) {
   interval = setInterval(() => {
-    setRemainingSecs(reaminingSecs => reaminingSecs + 1);
+    setRemainingSecs(remainingSecs => remainingSecs + 1);
+    console.log(remainingSecs);
   }, 1000);
-} else if(!isActive && reaminingSecs !== 0) {
-  clearInterval(interval);
+} else if(!isActive && remainingSecs !== 0) {
+  clearIntervalal(interval);
 }
-  }, [isActive])
+  }, [isActive]);
+
   return (
     <View style={styles.container}>
       <StatusBar style="light-content" />
+
       <Text style={styles.timerText}>{`${mins}:${secs}`}</Text>
-      <TouchableOpacity onPress={() => null} style={styles.button}>
+      
+      <TouchableOpacity onPress={toggle} style={styles.button}>
         <Text style={styles.buttonText}>{isActive ? "Pause" : "Start"}</Text>
       </TouchableOpacity>
+      
+      <TouchableOpacity onPress={reset} style={[styles.button, styles.buttonReset]}>
+        <Text style={[styles.buttonText, styles.buttonTextReset]}>Reset</Text>
+      </TouchableOpacity>
+
     </View>
   );
 }
@@ -52,9 +67,7 @@ const styles = StyleSheet.create({
     borderWidth: 10,
     borderColor: '#B9AAFf',
     width: screen.width / 2,
-    // maxWidth: '10vw',
     height : screen.width / 2,
-    // maxHeight: '10vw',
     borderRadius: screen.width / 2,
     alignItems: 'center',
     justifyContent: 'center'
@@ -67,5 +80,12 @@ const styles = StyleSheet.create({
     fontSize: 40,
     color: '#B9AAFF',
     marginBottom: 20,
+  },
+  buttonReset: {
+    marginTop: 20,
+    borderColor: '#FF851B',
+  },
+  buttonTextReset: {
+    color: '#FF851B',
   }
 });
